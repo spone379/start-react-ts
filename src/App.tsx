@@ -13,8 +13,11 @@ import { ROUTES } from './config/constants';
 const PrivateRoutes = () => (
   <>
     <Suspense fallback={<div>Loading...</div>}>
-      <Route exact path={ROUTES.main} component={MainPage} />
-      <Route exact path={ROUTES.some} component={Loadable.SomeContainer} />
+      <Switch>
+        <Route exact path={ROUTES.main} component={MainPage} />
+        <Route exact path={ROUTES.some} component={Loadable.SomeContainer} />
+        <Redirect to={ROUTES.main} />
+      </Switch>
     </Suspense>
   </>
 );
