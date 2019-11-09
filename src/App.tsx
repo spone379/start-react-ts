@@ -1,20 +1,14 @@
-import React, { Suspense } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import React, { Suspense } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
-import MainPage from "./pages/MainPage/MainPage";
-import NotFound from "./pages/NotFound/NotFound";
-import PrivateRoute from "./components/PrivateRoute";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import Loadable from "./pages/MainPage/components/Loadable";
+import MainPage from './pages/MainPage/MainPage';
+import NotFound from './pages/NotFound/NotFound';
+import PrivateRoute from './components/PrivateRoute';
+import LoginPage from './pages/LoginPage/LoginPage';
+import Loadable from './pages/MainPage/components/Loadable';
 
-
-export const ROUTES = {
-  main: "/",
-  login: '/login',
-  notFound: '/not-found',
-  some: '/some',
-}
+import { ROUTES } from './config/constants';
 
 const PrivateRoutes = () => (
   <>
@@ -24,7 +18,6 @@ const PrivateRoutes = () => (
     </Suspense>
   </>
 );
-
 
 const App = () => {
   return (
@@ -42,6 +35,6 @@ const App = () => {
       <Redirect to={ROUTES.notFound} />
     </Switch>
   );
-}
+};
 
 export default App;
