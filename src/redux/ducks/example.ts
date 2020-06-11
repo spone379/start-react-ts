@@ -1,6 +1,7 @@
 import { Dispatch } from 'redux';
 
-import { IExampleState, IAction } from './ducks.types';
+import { IExampleState } from './ducks.types';
+import { IAction } from '../../interfaces/interfaces';
 
 export const SOME_ACTION = 'SOME_ACTION';
 
