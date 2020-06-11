@@ -8,7 +8,6 @@ const useToggle = (initialValue: boolean): [boolean, (nextValue?: any) => void] 
       if (typeof nextValue === 'boolean') {
         setValue(nextValue);
       }
-      //
       else {
         setValue(currentValue => !currentValue);
       }
