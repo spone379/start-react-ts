@@ -1,16 +1,16 @@
 import React from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 
-
 interface IPrivateRouteProps extends RouteProps {
-  component: any,
+  component: React.ComponentType<RouteProps>,
   isAuthenticated: boolean,
   redirectLink: string
 }
 
+const PrivateRoute = ({ component: Component, ...props }: IPrivateRouteProps) => {
+  if (!Component) return null;
 
-const PrivateRoute = ({ component: Component, ...props }: IPrivateRouteProps) => (
-  <Route
+  return <Route
     {...props}
     render={routeProps => (
       props.isAuthenticated
@@ -18,6 +18,6 @@ const PrivateRoute = ({ component: Component, ...props }: IPrivateRouteProps) =>
         : <Redirect to={props.redirectLink} />
     )}
   />
-)
+}
 
 export default PrivateRoute;
