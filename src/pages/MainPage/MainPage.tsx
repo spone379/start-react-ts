@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './MainPage.scss';
-
+import SomeContainer from '../../containers/SomeContainer/SomeContainer';
 
 const MainPage = () => {
   return (
@@ -9,6 +9,8 @@ const MainPage = () => {
 
       <main className="main-page__wrapper" >
         Main Page
+
+        <SomeContainer a={3} />
       </main>
     </div>
   );
