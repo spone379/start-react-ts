@@ -1,0 +1,71 @@
+@import './variables.scss';
+
+.btn {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.15s;
+  color: #fff;
+  border: 1px solid transparent;
+
+  &:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+
+    &:hover{
+      background-color: darken($color: grey, $amount: 10%);
+    }
+  }
+
+  &--primary {
+    background-color: $primary;
+
+    &:hover {
+      background-color: darken($color: $primary, $amount: 10%);
+    }
+
+    &:not(:disabled):active:focus {
+      box-shadow: 0 0 0 3px lighten($color: $primary, $amount: 10%);   
+    }
+  }
+
+  &--success {
+    background-color: $green;
+
+    &:hover {
+      background-color: darken($color: $green, $amount: 10%);;
+    }
+
+    &:not(:disabled):active:focus {
+      box-shadow: 0 0 0 3px lighten($color: $green, $amount: 10%);   
+    }
+  }
+
+  &--danger {
+    background-color: $red;
+
+     &:hover {
+      background-color: darken($color: $red, $amount: 10%);;
+    }
+
+    &:not(:disabled):active:focus {
+      box-shadow: 0 0 0 3px lighten($color: $red, $amount: 10%);  
+    }
+  }
+
+  &--warning {
+    background-color: $orange;
+    color: #000;
+
+     &:hover {
+      background-color: darken($color: $orange, $amount: 10%);;
+    }
+
+    &:not(:disabled):active:focus {
+      box-shadow: 0 0 0 3px lighten($color: $orange, $amount: 10%); 
+    }
+  }
+}
