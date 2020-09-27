@@ -1,7 +1,9 @@
-import axios from 'axios';
+import axiosInstance from '../services/axiosInstance';
 
-const getExample = () => axios.get('api/some-api');
+const getExample = () => axiosInstance.get('api/some-api');
 
-export default {
-  getExample
-}
+const API = {
+  getExample,
+};
+
+export default API;
