@@ -7,11 +7,11 @@ import useToggle from './useToggle';
 import useThunkReducer from './useThunkReducer';
 
 export {
+  useToggle,
+  useThunkReducer,
   useDidMount,
   useWillUnmount,
   useDidUpdate,
   usePrevious,
   useDebounce,
-  useToggle,
-  useThunkReducer
 };
