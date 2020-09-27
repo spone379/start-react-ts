@@ -1,43 +1,46 @@
 import React, { Suspense } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-
-import './App.scss';
-import MainPage from './pages/MainPage/MainPage';
-import NotFound from './pages/NotFound/NotFound';
-import PrivateRoute from './components/PrivateRoute';
-import LoginPage from './pages/LoginPage/LoginPage';
-import Loadable from './pages/MainPage/components/Loadable';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { ROUTES } from './config/constants';
 
-const PrivateRoutes = () => (
-  <>
-    <Suspense fallback={<div>Loading...</div>}>
-      <Switch>
-        <Route exact path={ROUTES.main} component={MainPage} />
-        <Route exact path={ROUTES.some} component={Loadable.SomeContainer} />
-        <Redirect to={ROUTES.main} />
-      </Switch>
-    </Suspense>
-  </>
-);
+import NotFound from './pages/NotFound/NotFound';
+import LoginPage from './pages/LoginPage/LoginPage';
+import PrivateRoute from './components/PrivateRoute';
+import Loadable from './components/Loadable';
+import GlobalPreloader from './components/GlobalPreloader/GlobalPreloader';
+
+const PrivateRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Loadable.MainPage />} />
+
+      <Route path='*' element={<NotFound />} />
+    </Routes>
+  )
+};
 
 const App = () => {
   return (
-    <Switch>
-      <Route exact path={ROUTES.login} component={LoginPage} />
+    <Suspense fallback={<GlobalPreloader />} >
+      <Routes>
+        <Route path={ROUTES.login} element={<LoginPage />} />
 
-      <PrivateRoute
-        path={ROUTES.main}
-        component={PrivateRoutes}
-        isAuthenticated={true}
-        redirectLink={ROUTES.login}
-      />
+        <Route path="/">
+          <Navigate to={ROUTES.main} />
+        </Route>
 
-      <Route path={ROUTES.notFound} component={NotFound} />
-      <Redirect to={ROUTES.notFound} />
-    </Switch>
-  );
+        <PrivateRoute
+          path={'app/*'}
+          component={PrivateRoutes}
+          redirectLink={ROUTES.login}
+          isAuthenticated={true}
+        />
+
+        <Route path={ROUTES.notFound} element={<NotFound />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </Suspense>
+  )
 };
 
 export default App;
