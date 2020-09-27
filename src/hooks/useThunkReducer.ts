@@ -5,7 +5,7 @@ import { IAction } from '../interfaces/interfaces';
 export type AsyncAction<A> = (dispatch: Dispatch<A>) => void;
 export type ThunkDispatch<A> = (action: A | AsyncAction<A>) => Promise<void>;
 
-const useThunkReducer = (reducer: Reducer<any, IAction>, initialState: any, reducerName?: string):
+export default (reducer: Reducer<any, IAction>, initialState: any, reducerName?: string):
   [
     any,
     ThunkDispatch<IAction>
@@ -39,6 +39,4 @@ const useThunkReducer = (reducer: Reducer<any, IAction>, initialState: any, redu
     }, []);
 
   return [state, thunkDispatch];
-}
-
-export default useThunkReducer;
+};

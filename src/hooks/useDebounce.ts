@@ -1,6 +1,6 @@
 import useDidUpdate from './useDidUpdate';
 
-const useDebounce = (fn: () => any, ms: number, args: any[]) => {
+export default (fn: () => any, ms: number, args: any[]) => {
   useDidUpdate(() => {
     const handle = setTimeout(fn.bind(null, args), ms);
 
@@ -9,5 +9,3 @@ const useDebounce = (fn: () => any, ms: number, args: any[]) => {
     };
   }, args);
 };
-
-export default useDebounce;
