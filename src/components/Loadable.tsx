@@ -6,6 +6,8 @@ const MainPage = lazy(() =>
   )
 );
 
-export default {
+const Loadable = {
   MainPage,
-};
+}
+
+export default Loadable;

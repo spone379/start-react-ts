@@ -1,5 +1,3 @@
-import React from 'react';
-
 import './GlobalPreloader.scss';
 import Spinner from '../Spinner/Spinner';
 

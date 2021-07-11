@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { ROUTES } from './config/constants';

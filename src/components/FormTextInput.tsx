@@ -1,4 +1,4 @@
-import React, { MutableRefObject } from "react";
+import { MutableRefObject } from "react";
 import { FieldRenderProps } from "react-final-form";
 
 import Spinner from "./Spinner/Spinner";

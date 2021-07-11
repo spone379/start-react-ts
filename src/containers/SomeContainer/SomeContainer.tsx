@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ISomeContainerProps } from './SomeContainer.types';
 
 const SomeContainer = (props: ISomeContainerProps) => {

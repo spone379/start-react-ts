@@ -1,5 +1,3 @@
-import React from 'react';
-
 import './MainPage.scss';
 import SomeContainer from '../../containers/SomeContainer/SomeContainer';
 
