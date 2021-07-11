@@ -17,13 +17,13 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "isolatedModules": true,
     "pretty": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": false,
-    "allowUnreachableCode": false,
+    "allowUnreachableCode": false
   },
   "include": [
     "src"
