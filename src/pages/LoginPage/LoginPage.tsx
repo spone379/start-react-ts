@@ -8,7 +8,7 @@ import { useDidMount } from '../../hooks';
 import './LoginPage.scss';
 import FormTextInput from '../../components/FormTextInput';
 import GlobalPreloader from '../../components/GlobalPreloader/GlobalPreloader';
-import AsyncBtn from '../../components/AsyncBtn';
+import AsyncBtn from '../../components/AsyncBtn/AsyncBtn';
 
 export interface ILoginParams {
   username: string;

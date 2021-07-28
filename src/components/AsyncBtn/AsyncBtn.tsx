@@ -1,12 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-import { usePrevious, useWillUnmount } from '../hooks';
+import { usePrevious, useWillUnmount } from '../../hooks';
 
-import Spinner from './Spinner/Spinner';
+import './AsyncBtn.scss';
+import Spinner from '../Spinner/Spinner';
 
 interface IAsyncBtnProps {
   onClick?: () => Promise<any>;
-  children: JSX.Element | string;
   className: string;
   pending?: boolean;
   disabled?: boolean;
@@ -14,7 +14,7 @@ interface IAsyncBtnProps {
   type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
-const AsyncBtn = (props: IAsyncBtnProps) => {
+const AsyncBtn: React.FC<IAsyncBtnProps> = (props) => {
   const {
     className,
     spinnerSize,
@@ -53,14 +53,19 @@ const AsyncBtn = (props: IAsyncBtnProps) => {
   return (
     <button
       type={props.type}
-      className={className}
+      className={`async-btn ${className}`}
       onClick={handleClick}
       disabled={pending || disabled}
+    // {...buttonProps}
     >
-      {pending
-        ? <Spinner size={spinnerSize} />
-        : props.children
+      {props.children}
+
+      {pending &&
+        <div className="async-btn__spinner-wrap">
+          <Spinner size={spinnerSize} />
+        </div>
       }
+
     </button>
   );
 };
